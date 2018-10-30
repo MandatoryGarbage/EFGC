@@ -1,6 +1,8 @@
 export class Tournament {
-    id: number = 0;
-    name: string = '';
-    completed_at: string = '';
-    
+    tournament: {
+        id: number,
+        name: string,
+        completed_at: string,
+        participant_count: number
+    }
 }

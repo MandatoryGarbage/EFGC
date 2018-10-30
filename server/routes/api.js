@@ -10,11 +10,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/tournaments', (req, res) => {
-    console.log(`${url}/tournaments.json${apiKey}`);
-    axios.get(`${url}/tournaments.json${apiKey}`)
-    .then(posts => {
-        rs.status(200).json(posts.data)
+    console.log(`${url}/tournaments.json${apiKey}&created_after=2018-10-10`);
+    axios.get(`${url}/tournaments.json${apiKey}&created_after=2018-10-10`)
+    .then(tournaments => {
+        res.status(200).json(tournaments.data)
     }).catch(error => {
+        console.log(error);
         res.status(500).send(error)
     });
 });
