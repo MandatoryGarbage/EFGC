@@ -1,4 +1,4 @@
-import { Tournament } from "./tournament";
+import { Tournament } from './tournament';
 
 export class TournamentByGame {
     game: string = '';

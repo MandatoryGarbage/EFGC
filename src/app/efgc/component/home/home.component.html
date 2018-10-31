@@ -1,7 +1,15 @@
 <h2>Home Component works!</h2>
-<div fxLayout="row wrap" fxLayoutGap="20px">
+<div fxLayout="column" fxLayoutGap="20px">
   <mat-card *ngFor="let game of tournamentsByGame">
     <h3 mat-card-title>{{game.game}}</h3>
-    <div *ngFor="let tournament of game.tournaments">{{tournament.tournament.name}} | {{tournament.tournament.participants_count}} entrants</div>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <div *ngFor="let tournament of game.tournaments">
+        <div fxLayout="column" fxLayoutGap="20px">
+          <div>{{tournament.tournament.name}} | {{tournament.tournament.id}} |
+            {{tournament.tournament.participants_count}} entrants</div>
+          <efgc-tournament [tournamentId]='tournament.tournament.id' [game]='game.game'></efgc-tournament>
+        </div>
+      </div>
+    </div>
   </mat-card>
 </div>

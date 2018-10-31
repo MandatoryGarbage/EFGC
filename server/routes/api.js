@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/tournaments', (req, res) => {
-    console.log(`${url}/tournaments.json${apiKey}&created_after=2018-10-10`);
-    axios.get(`${url}/tournaments.json${apiKey}&created_after=2018-10-10`)
+    // console.log(`${url}/tournaments.json${apiKey}&created_after=2018-08-14`);
+    axios.get(`${url}/tournaments.json${apiKey}&created_after=2018-08-14`)
     .then(tournaments => {
         res.status(200).json(tournaments.data)
     }).catch(error => {
@@ -19,5 +19,27 @@ router.get('/tournaments', (req, res) => {
         res.status(500).send(error)
     });
 });
+
+router.get('/participants/:tournamentId', (req, res) => {
+    // console.log(`${url}/tournaments/${req.params.tournamentId}/participants.json${apiKey}`);
+    axios.get(`${url}/tournaments/${req.params.tournamentId}/participants.json${apiKey}`)
+    .then(participants => {
+        res.status(200).json(participants.data)
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send(error);
+    })
+})
+
+router.get('/matches/:tournamentId', (req, res) => {
+    // console.log(`${url}/tournaments/${req.params.tournamentId}/matches.json${apiKey}`);
+    axios.get(`${url}/tournaments/${req.params.tournamentId}/matches.json${apiKey}`)
+    .then(matches => {
+        res.status(200).json(matches.data)
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send(error);
+    })
+})
 
 module.exports = router;

@@ -4,5 +4,5 @@ export class Tournament {
         name: string,
         completed_at: string,
         participant_count: number
-    }
+    };
 }

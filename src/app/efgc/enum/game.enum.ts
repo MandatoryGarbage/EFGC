@@ -1,4 +1,4 @@
-export enum Game {
+export enum GameEnum {
     DBFZ = 129078,
     UNIST = 22400,
     SFV = 28355,
